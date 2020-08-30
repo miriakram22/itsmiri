@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LastDayProductionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LastDayProduction.dbo.CharacteristicModel' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CharacteristicModel">
+          <Property Name="Noun" Type="varchar" MaxLength="50" />
+          <Property Name="Modifier" Type="varchar" MaxLength="50" />
+          <Property Name="Seq" Type="varchar" MaxLength="50" />
+          <Property Name="Characteristic" Type="varchar" MaxLength="50" />
+          <Property Name="TheValue" Type="varchar" MaxLength="50" />
+          <Property Name="Definition" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LastDayProduction.dbo.ELMLastDayProductionModel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ELMLastDayProductionModel">
+          <Key>
+            <PropertyRef Name="Date_" />
+            <PropertyRef Name="Oilvol" />
+            <PropertyRef Name="LPGvol" />
+            <PropertyRef Name="CondVol" />
+          </Key>
+          <Property Name="Date_" Type="date" Nullable="false" />
+          <Property Name="Oilvol" Type="real" Nullable="false" />
+          <Property Name="LPGvol" Type="real" Nullable="false" />
+          <Property Name="CondVol" Type="real" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LastDayProduction.dbo.HBNSLastDayProductionModel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="HBNSLastDayProductionModel">
+          <Key>
+            <PropertyRef Name="Date_" />
+            <PropertyRef Name="Volume" />
+          </Key>
+          <Property Name="Date_" Type="date" Nullable="false" />
+          <Property Name="Volume" Type="real" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LastDayProduction.dbo.ModifierModel' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ModifierModel">
+          <Property Name="Modifier" Type="varchar" MaxLength="50" />
+          <Property Name="Definition" Type="varchar(max)" />
+          <Property Name="Guidelines" Type="varchar" MaxLength="50" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Abv" Type="varchar" MaxLength="50" />
+          <Property Name="Reference" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LastDayProduction.dbo.NounModel' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NounModel">
+          <Property Name="Noun" Type="varchar" MaxLength="50" />
+          <Property Name="NounGroup" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LastDayProduction.dbo.PrimaryGroupModel' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PrimaryGroupModel">
+          <Property Name="Abv" Type="varchar" MaxLength="50" />
+          <Property Name="NounGroup" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LastDayProduction.dbo.SynonymModel' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SynonymModel">
+          <Property Name="TheSynonym" Type="varchar" MaxLength="50" />
+          <Property Name="GuideLines" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityContainer Name="LastDayProductionModelStoreContainer">
+          <EntitySet Name="ELMLastDayProductionModel" EntityType="Self.ELMLastDayProductionModel" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ELMLastDayProductionModel].[Date_] AS [Date_], 
+    [ELMLastDayProductionModel].[Oilvol] AS [Oilvol], 
+    [ELMLastDayProductionModel].[LPGvol] AS [LPGvol], 
+    [ELMLastDayProductionModel].[CondVol] AS [CondVol]
+    FROM [dbo].[ELMLastDayProductionModel] AS [ELMLastDayProductionModel]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HBNSLastDayProductionModel" EntityType="Self.HBNSLastDayProductionModel" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HBNSLastDayProductionModel].[Date_] AS [Date_], 
+    [HBNSLastDayProductionModel].[Volume] AS [Volume]
+    FROM [dbo].[HBNSLastDayProductionModel] AS [HBNSLastDayProductionModel]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LastDayProductionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ELMLastDayProductionModel">
+          <Key>
+            <PropertyRef Name="Date_" />
+            <PropertyRef Name="Oilvol" />
+            <PropertyRef Name="LPGvol" />
+            <PropertyRef Name="CondVol" />
+          </Key>
+          <Property Name="Date_" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Oilvol" Type="Single" Nullable="false" />
+          <Property Name="LPGvol" Type="Single" Nullable="false" />
+          <Property Name="CondVol" Type="Single" Nullable="false" />
+          <NavigationProperty Name="HBNSLastDayProductionModel" Relationship="LastDayProductionModel.HBNSLastDayProductionModelELMLastDayProductionModel" FromRole="ELMLastDayProductionModel" ToRole="HBNSLastDayProductionModel" />
+        </EntityType>
+        <EntityType Name="HBNSLastDayProductionModel">
+          <Key>
+            <PropertyRef Name="Date_" />
+            <PropertyRef Name="Volume" />
+          </Key>
+          <Property Name="Date_" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Volume" Type="Single" Nullable="false" />
+          <NavigationProperty Name="ELMLastDayProductionModel" Relationship="LastDayProductionModel.HBNSLastDayProductionModelELMLastDayProductionModel" FromRole="HBNSLastDayProductionModel" ToRole="ELMLastDayProductionModel" />
+        </EntityType>
+        <EntityContainer Name="LastDayProductionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ELMLastDayProductionModel" EntityType="Self.ELMLastDayProductionModel" />
+          <EntitySet Name="HBNSLastDayProductionModel" EntityType="Self.HBNSLastDayProductionModel" />
+          <AssociationSet Name="HBNSLastDayProductionModelELMLastDayProductionModel" Association="LastDayProductionModel.HBNSLastDayProductionModelELMLastDayProductionModel">
+            <End Role="HBNSLastDayProductionModel" EntitySet="HBNSLastDayProductionModel" />
+            <End Role="ELMLastDayProductionModel" EntitySet="ELMLastDayProductionModel" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="HBNSLastDayProductionModelELMLastDayProductionModel">
+          <End Type="LastDayProductionModel.HBNSLastDayProductionModel" Role="HBNSLastDayProductionModel" Multiplicity="1" />
+          <End Type="LastDayProductionModel.ELMLastDayProductionModel" Role="ELMLastDayProductionModel" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LastDayProductionModelStoreContainer" CdmEntityContainer="LastDayProductionEntities">
+          <EntitySetMapping Name="ELMLastDayProductionModel">
+            <EntityTypeMapping TypeName="LastDayProductionModel.ELMLastDayProductionModel">
+              <MappingFragment StoreEntitySet="ELMLastDayProductionModel">
+                <ScalarProperty Name="Date_" ColumnName="Date_" />
+                <ScalarProperty Name="Oilvol" ColumnName="Oilvol" />
+                <ScalarProperty Name="LPGvol" ColumnName="LPGvol" />
+                <ScalarProperty Name="CondVol" ColumnName="CondVol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HBNSLastDayProductionModel">
+            <EntityTypeMapping TypeName="LastDayProductionModel.HBNSLastDayProductionModel">
+              <MappingFragment StoreEntitySet="HBNSLastDayProductionModel">
+                <ScalarProperty Name="Date_" ColumnName="Date_" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
